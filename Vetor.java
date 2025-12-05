@@ -50,4 +50,24 @@ public class Vetor {
     public int[] getArray() {
         return this.elementos;
     }
+
+    public boolean buscaBinaria(int chave) {
+        int inicio = 0;
+        int fim = this.tamanhoAtual - 1;
+
+        while (inicio <= fim) {
+            int meio = inicio + (fim - inicio) / 2;
+
+            if (this.elementos[meio] == chave) {
+                return true;
+            }
+            if (this.elementos[meio] < chave) {
+                inicio = meio + 1;
+            } 
+            else {
+                fim = meio - 1;
+            }
+        }
+        return false;
+    }
 }
